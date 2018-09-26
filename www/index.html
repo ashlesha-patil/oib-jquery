@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/oib.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel = "stylesheet" href = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src = "https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div style="text-align:center" data-role="page">
+        <div data-role="header">
+            <h1>
+            <i class="fa fa-bars"></i>
+            Book A Cab
+            </h1>
+        </div>
+      <div data-role="main" class="ui-content" id="hideThis">
+      <form>
+        <div hidden data-oib-page-number="1" data-oib-label="Select Ride Type"></div>
+        <div data-oib-page-number="1" class="oib-input-radio-group" data-oib-sequence="1" data-oib-radio-name="rideType">
+          <div hidden class="oib-label" data-oib-label="Daily" data-oib-sequence="1"></div>
+          <button class="oib-input-radio" data-oib-sequence="1" data-oib-radio-value="1" type="button" onclick="app.setRideType()">Daily</button>
+          <div hidden class="oib-label" data-oib-label="One time" data-oib-sequence="2"></div>
+          <button class="oib-input-radio" data-oib-sequence="2" data-oib-radio-value="1" type="button">One time</button>
+          <div hidden class="oib-label" data-oib-label="Outstation" data-oib-sequence="3"></div>
+          <button class="oib-input-radio" data-oib-sequence="3" data-oib-radio-value="1" type="button">Outstation</button>
+        </div>
+        
+        <div>
+          <label data-oib-page-number="2" class="oib-label" for='sourceAddress' hidden> Pick Up</label>
+          <input data-oib-page-number="2" class="oib-input" type='text' name='sourceAddress' placeholder="Enter Pickup Location">
+        </div>
+        <div>
+          <label data-oib-page-number="3" data-oib-label="Drop" for='destinationAddress' hidden></label>
+          <input data-oib-page-number="3" class="oib-input" type='text' name='destinationAddress' placeholder="Enter drop Location">
+        </div>
+        <img src="../assets/images/map.png" class="map-img"/>
+        <div hidden data-oib-page-number="4" data-oib-label="Select Cab Option"></div>
+        <div data-oib-page-number="4" class="oib-input-radio-group" data-oib-radio-name="cabType">
+          <div hidden class="oib-label" data-oib-label="Auto" data-oib-radio-value="1"></div>
+          <button class="oib-input-radio" data-oib-radio-value="1" type="button" data-abc="4564">Auto</button>
+          <div hidden class="oib-label" data-oib-label="Micro" ></div>
+          <button class="oib-input-radio" data-oib-radio-value="2" type="button">Micro</button>
+          <div hidden class="oib-label" data-oib-label="Mini"></div>
+          <button class="oib-input-radio" data-oib-radio-value="3" type="button">Mini</button>
+          <div hidden class="oib-label" data-oib-label="Sedan"></div>
+          <button class="oib-input-radio"  data-oib-adio-value="1" type="button">Sedan</button>
+        </div>
+        <div>
+          <!-- <div hidden class="oib-label" data-oib-label="Book" data-oib-sequence="3-3"></div>
+          <button class="oib-button" data-oib-sequence="3-3" type="submit">Book</button> -->
+        </div>
+      </form>
+      </div>
+      <div *ngIf="isOIBMode" id="IOB-Div" [innerHTML]="OIBString"></div>
+      
+      <input type="checkbox" onchange="app.toggleOIBMode()">
+      <span>OIB Mode</span>
+    </div>  
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="lib/oib.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>
