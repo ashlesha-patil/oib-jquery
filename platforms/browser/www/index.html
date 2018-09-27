@@ -39,9 +39,10 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <link rel="stylesheet" type="text/css" href="css/oib.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel = "stylesheet" href = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/oib.css" />
     <script src = "https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <title>Hello World</title>
@@ -55,18 +56,17 @@
             Book A Cab
             </h1>
         </div>
-      <div data-role="main" class="ui-content" id="hideThis">
+      <div data-role="main" class="ui-content container" id="hideThis">
       <form>
         <div hidden data-oib-page-number="1" data-oib-label="Select Ride Type"></div>
-        <div data-oib-page-number="1" class="oib-input-radio-group" data-oib-sequence="1" data-oib-radio-name="rideType">
+        <div data-oib-page-number="1" class="oib-input-radio-group row" data-oib-sequence="1" data-oib-radio-name="rideType">
           <div hidden class="oib-label" data-oib-label="Daily" data-oib-sequence="1"></div>
-          <button class="oib-input-radio" data-oib-sequence="1" data-oib-radio-value="1" type="button" onclick="app.setRideType()">Daily</button>
+          <button class="oib-input-radio col-4" data-oib-sequence="1" data-oib-radio-value="1" type="button" onclick="app.setRideType()">Daily</button>
           <div hidden class="oib-label" data-oib-label="One time" data-oib-sequence="2"></div>
-          <button class="oib-input-radio" data-oib-sequence="2" data-oib-radio-value="1" type="button">One time</button>
+          <button class="oib-input-radio col-4" data-oib-sequence="2" data-oib-radio-value="1" type="button">One time</button>
           <div hidden class="oib-label" data-oib-label="Outstation" data-oib-sequence="3"></div>
-          <button class="oib-input-radio" data-oib-sequence="3" data-oib-radio-value="1" type="button">Outstation</button>
-        </div>
-        
+          <button class="oib-input-radio col-4" data-oib-sequence="3" data-oib-radio-value="1" type="button">Outstation</button>
+          </div>
         <div>
           <label data-oib-page-number="2" class="oib-label" for='sourceAddress' hidden> Pick Up</label>
           <input data-oib-page-number="2" class="oib-input" type='text' name='sourceAddress' placeholder="Enter Pickup Location">
@@ -75,17 +75,17 @@
           <label data-oib-page-number="3" data-oib-label="Drop" for='destinationAddress' hidden></label>
           <input data-oib-page-number="3" class="oib-input" type='text' name='destinationAddress' placeholder="Enter drop Location">
         </div>
-        <img src="../assets/images/map.png" class="map-img"/>
+        <img src="img/map.png" class="map-img"/>
         <div hidden data-oib-page-number="4" data-oib-label="Select Cab Option"></div>
-        <div data-oib-page-number="4" class="oib-input-radio-group" data-oib-radio-name="cabType">
+        <div data-oib-page-number="4" class="oib-input-radio-group row" data-oib-radio-name="cabType">
           <div hidden class="oib-label" data-oib-label="Auto" data-oib-radio-value="1"></div>
-          <button class="oib-input-radio" data-oib-radio-value="1" type="button" data-abc="4564">Auto</button>
+          <button class="oib-input-radio col-3" data-oib-radio-value="1" type="button" data-abc="4564">Auto</button>
           <div hidden class="oib-label" data-oib-label="Micro" ></div>
-          <button class="oib-input-radio" data-oib-radio-value="2" type="button">Micro</button>
+          <button class="oib-input-radio col-3" data-oib-radio-value="2" type="button">Micro</button>
           <div hidden class="oib-label" data-oib-label="Mini"></div>
-          <button class="oib-input-radio" data-oib-radio-value="3" type="button">Mini</button>
+          <button class="oib-input-radio col-3" data-oib-radio-value="3" type="button">Mini</button>
           <div hidden class="oib-label" data-oib-label="Sedan"></div>
-          <button class="oib-input-radio"  data-oib-adio-value="1" type="button">Sedan</button>
+          <button class="oib-input-radio col-3"  data-oib-adio-value="1" type="button">Sedan</button>
         </div>
         <div>
           <!-- <div hidden class="oib-label" data-oib-label="Book" data-oib-sequence="3-3"></div>
