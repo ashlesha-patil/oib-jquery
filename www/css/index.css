@@ -77,5 +77,44 @@ h1 {
 }
 
 .oib-input-radio {
-    
+    margin: 0px !important;
+    height: 43px;
+    border: 0 !important;
+    background-color: #fff;
+    font-weight: normal !important;
+}
+
+.cab-type-button {
+    width: 19%;
+    border: 0 !important;
+    font-size: 12px !important;
+    margin: .5% !important;
+    background-color: #ffffff !important;
+    font-weight: normal !important;
+    padding: 3px 2.1px !important;
+}
+.cab-type-button:hover {
+    border-radius: 50% !important;
+    /* color: green; */
+}
+.container {
+    padding: 0 !important;
+}
+.ui-input-text {
+    margin: 0 !important;
+}
+.map-div {
+    background-image: url(../img/map.png);
+    height: calc(100vh - 195px);
+}
+.location-input {
+    margin: 0 3% !important;
+}
+.row {
+    margin: 0px !important;
+}
+.book-button {
+    background-color: #333333 !important;
+    color: yellow !important;
+    font-weight: 300 !important;
 }
