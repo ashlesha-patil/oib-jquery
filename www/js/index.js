@@ -42,23 +42,23 @@ var app = {
     
         console.log('Received Event: ' + id);
     },
-
-    toggleOIBMode: function() {
-        console.log('isOIBMode: ' + this.isOIBMode);
-        // if (!this.isOIBMode) {
-        //   OIB.exitOIB('hideThis');
-        // } else {
-            // if (this.isOIBMode) {
+    isOIBMode: false,
+    toggleOIBMode: function(event) {
+        console.log('isOIBMode: ' + event.value);
+        if (event.value != '1') {
+            this.isOIBMode = false;
+          OIB.exitOIB('hideThis');
+        } else {
+            this.isOIBMode = true;
                 OIB.initialize('hideThis');
-                // this.OIBString = this.sanitizer.bypassSecurityTrustHtml(OIB.initialize('hideThis'));
-                // setTimeout(() => {
-                //   OIB.showTab(0);
-                // }, 0);
-            //   }
-        // }
+        }
       },
 
       setRideType: function() {
           alert('Hiiiii NOT Byeeee')
       }
 };
+
+$(document).ready(() => {
+    console.log('ready');
+});

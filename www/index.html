@@ -39,7 +39,8 @@
   <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
   <link rel="stylesheet" type="text/css" href="css/index.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
@@ -52,7 +53,9 @@
 <body>
   <div style="text-align:center" data-role="page">
     <div data-role="header">
-      <i class="fa fa-bars ui-btn-left"></i>
+      <!--<i class="fa fa-bars ui-btn-left"></i>  -->
+
+      <a href="#left-panel" class="ui-btn-left"><i class="fa fa-bars"></i></a>
       <h1>Book A Cab</h1>
       <i class="fa fa-bell ui-btn-right"></i>
     </div>
@@ -82,31 +85,31 @@
         <div data-oib-page-number="4" class="oib-input-radio-group row" data-oib-radio-name="cabType">
           <div hidden class="oib-label" data-oib-label="Auto" data-oib-radio-value="1"></div>
           <!-- <button class="oib-input-radio col-3" data-oib-radio-value="1" type="button" data-abc="4564">Auto</button> -->
-          <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button">
+          <a data-role="button" href="#" data-shadow="false" data-theme="none" class="oib-input-radio cab-type-button" data-oib-radio-value="1">
             <img src="img/cab-mini.png" border="0" />
             <br />Mini
           </a>
           <div hidden class="oib-label" data-oib-label="Micro"></div>
           <!-- <button class="oib-input-radio col-3" data-oib-radio-value="2" type="button">Micro</button> -->
-          <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button">
+          <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio" data-oib-radio-value="2">
             <img src="img/cab-micro.png" border="0" />
             <br />Micro
           </a>
           <div hidden class="oib-label" data-oib-label="Sedan"></div>
           <!-- <button class="oib-input-radio col-3"  data-oib-adio-value="1" type="button">Sedan</button> -->
-          <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button">
+          <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio" data-oib-radio-value="3">
             <img src="img/cab-sedan.png" border="0" />
             <br />Sedan
           </a>
           <div hidden class="oib-label" data-oib-label="Premium"></div>
           <!-- <button class="oib-input-radio col-3" data-oib-radio-value="3" type="button">Mini</button> -->
-          <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button">
+          <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio" data-oib-radio-value="4">
             <img src="img/cab-premium.png" border="0" />
             <br />Luxury
           </a>
           <div hidden class="oib-label" data-oib-label="Share"></div>
           <!-- <button class="oib-input-radio col-3" data-oib-radio-value="3" type="button">Mini</button> -->
-          <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button">
+          <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio" data-oib-radio-value="5">
             <img src="img/cab-share.png" border="0" />
             <br />Share
           </a>
@@ -119,8 +122,38 @@
     </div>
     <div *ngIf="isOIBMode" id="IOB-Div" [innerHTML]="OIBString"></div>
 
-    <input type="checkbox" onchange="app.toggleOIBMode()">
-    <span>OIB Mode</span>
+    <!-- <input type="checkbox" onchange="app.toggleOIBMode()">
+    <span>OIB Mode</span> -->
+  </div>
+  <div data-role="panel" id="left-panel" data-display="overlay">
+    <ul data-role="listview" data-inset="true" data-divider-theme="b">
+      <li data-role="list-divider" class="settings-heading">Settings</li>
+      <li><a href="#profile-page" class="settings-menu"><i class="fa fa-2x fa-user menu-icon"></i>Profile</a></li>
+      <li><a href="#" class="settings-menu"><i class="fas fa-2x fa-car-side menu-icon"></i>Your Rides</a></li>
+      <li><a href="#" class="settings-menu"><i class="fas fa-2x fa-rupee-sign menu-icon"></i>Payments</a></li>
+      <li><a href="#" class="settings-menu"><i class="fas fa-2x fa-comments-dollar menu-icon"></i>Refer and Earn</a></li>
+      <li><a href="#" class="settings-menu"><i class="fas fa-2x fa-ticket-alt menu-icon"></i>Cab Pass</a></li>
+      <li><a href="#" class="settings-menu"><i class="fas fa-2x fa-clipboard-list menu-icon"></i>Rate Card</a></li>
+      <li><a href="#" class="settings-menu"><i class="fas fa-2x fa-headset menu-icon"></i>Support</a></li>
+      <li><a href="#" class="settings-menu"><i class="fas fa-2x fa-info-circle menu-icon"></i>About</a></li>
+    </ul>
+  </div>
+  <div data-role="panel" id="profile-page" data-display="overlay">
+    <div class="profile-list-item">
+      <img src="img/aai.png" class="profile-img" />
+      <span class="profile-name">Ashlesha Jagtap</span>
+    </div>
+    <div class="profile-list-item">
+      <div>Contact Number</div>
+      <div>1234567890</div>
+    </div>
+    <div class="profile-list-item">
+      <div >OIB Mode</div>
+      <select name="oibMode" id="iobMode" data-role="slider" onchange="app.toggleOIBMode(this)">
+        <option value="0">Off</option>
+        <option value="1">On</option>
+      </select>
+    </div>
   </div>
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="lib/oib.js"></script>

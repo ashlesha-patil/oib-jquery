@@ -98,9 +98,9 @@ const OIB = {
       htmlString += '<div class="tab">';
       for (var j = 0; j < pageMap[i].length; j++) {
         const element = pageMap[i][j];
-        if (OIB_ELEMENTS.CUSTOM_HTML.RADIO === element.className) {
+        if (element.className.indexOf(OIB_ELEMENTS.CUSTOM_HTML.RADIO) !== -1) {
           htmlString += this.getRadioGroup([].slice.call(element.children), element.dataset.oibRadioName);
-        } else if (OIB_ELEMENTS.DISPLAY.LABEL === element.className || element.dataset.oibLabel ) {
+        } else if (element.className.indexOf(OIB_ELEMENTS.DISPLAY.LABEL) !== -1 || element.dataset.oibLabel ) {
           htmlString += this.getLabel(element);
         }else {
           htmlString += this.appendOIBClasses(element).outerHTML;

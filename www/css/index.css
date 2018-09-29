@@ -118,3 +118,34 @@ h1 {
     color: yellow !important;
     font-weight: 300 !important;
 }
+
+.ui-btn-right, .ui-btn-left {
+    font-size: 21.5px !important;
+    color: #635a5a !important; 
+    padding: 4px !important;
+}
+.settings-menu {
+    font-size: 16px !important;
+    font-weight: normal !important;
+}
+.menu-icon {
+    width: 50px
+}
+.settings-heading {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    padding: 12px !important;
+}
+.profile-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.profile-list-item {
+    height: 100px;
+    padding: 10px;
+}
+.profile-name {
+    padding-left: 20px;
+    font-size: 120%;
+}
