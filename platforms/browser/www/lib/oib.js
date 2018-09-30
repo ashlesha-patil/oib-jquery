@@ -108,14 +108,14 @@ const OIB = {
       }
       htmlString += '</div>';
     }
-    htmlString += `<div style="overflow:auto;">
-                        <div style="float:right;">
-                          <button type="button" id="prevBtn" onclick=javascript:OIB.nextPrev(-1)>Previous</button>
-                          <button type="button" id="nextBtn" onclick="javascript:OIB.nextPrev(1)">Next</button>
+    htmlString += `<div class="oib-action-buttons">
+                        <div style="float:right; padding: 10px;">
+                          <button type="button" id="prevBtn" onclick="javascript:OIB.nextPrev(-1)" class="oib-primary-button">Previous</button>
+                          <button type="button" id="nextBtn" onclick="javascript:OIB.nextPrev(1)" class="oib-primary-button">Next</button>
                             </div>
                         </div>
                         <!-- Circles which indicates the steps of the form: -->
-                        <div style="text-align:center;margin-top:40px;">
+                        <div class="oib-footer-steps">
                             <span class="step"></span>
                             <span class="step"></span>
                             <span class="step"></span>
@@ -124,7 +124,7 @@ const OIB = {
                         </form>`
     var elementToHide = document.getElementById(elementId);
     elementToHide.innerHTML = htmlString;
-
+    elementToHide.className += ' notransition';
     var currentTab = 0; // Current tab is set to be the first tab (0)
     this.showTab(currentTab); // Display the crurrent tab
     return htmlString;
@@ -179,7 +179,8 @@ const OIB = {
     x[n].className += " active";
   },
   exitOIB: function(elementId) {
-    document.getElementById(elementId).style.display = "block";
+    const element = document.getElementById(elementId);
+    element.style.display = "block";
   },
   getRadioGroup: function(radioElements, name) {
     // radioElements = radioElements.sort(function (a, b) {
@@ -210,7 +211,7 @@ const OIB = {
     //   }
     //   return 0;
     // });
-    let radioStr = '<br>';
+    let radioStr = '';
     for (var i in radios) {
       // Grab the original element
       var original    = radios[i];
@@ -223,6 +224,9 @@ const OIB = {
           var nodeValue = original.attributes.item(j).nodeValue;
           replacement.setAttribute(nodeName, nodeValue);
       }
+      replacement.className = replacement.className.replace('ui-btn', '');
+      replacement.className = replacement.className.replace('ui-shadow', '');
+      replacement.className = replacement.className.replace('ui-corner-all', '');
       replacement.className += ' oib-mode-radio';
       replacement.name = name;
       replacement.value = radios[i].dataset.oibRadioValue;
@@ -230,19 +234,25 @@ const OIB = {
       // Persist contents
       replacement.innerHTML = original.innerHTML;
       
-      radioStr += replacement.outerHTML + this.getLabel(labels[i]) +'<br>'
+      radioStr += '<div class="row oib-radio-row"><div class="oib-radio-wrapper">' + replacement.outerHTML +' </div><div class="col-8">'+ this.getLabel(labels[i], true) +'</div></div>'
     }
     return radioStr;
   },
-  getLabel: function(labelElement) {
+  getLabel: function(labelElement, isChild) {
     let labelStr = '';
+    let labelClass = '';
     if (labelElement.dataset.oibLabel) {
       labelStr = labelElement.dataset.oibLabel;
     } else {
       labelStr = labelElement.innerHTML;
     }
+    if (isChild) {
+      labelClass = 'oib-mode-label';
+    } else {
+      labelClass = 'oib-mode-heading';
+    }
     // TODO: Add remaining attributes to the element
-    return '<label class="oib-mode-label">' + labelStr + '</label>'
+    return '<label class="' + labelClass +'">' + labelStr + '</label>'
   },
   appendOIBClasses: function(element) {
     element.className += " oib-mode";

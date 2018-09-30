@@ -55,7 +55,7 @@
     <div data-role="header">
       <!--<i class="fa fa-bars ui-btn-left"></i>  -->
 
-      <a href="#left-panel" class="ui-btn-left"><i class="fa fa-bars"></i></a>
+      <a href="#left-panel" data-theme="none"><i class="fa fa-bars"></i></a>
       <h1>Book A Cab</h1>
       <i class="fa fa-bell ui-btn-right"></i>
     </div>
@@ -86,31 +86,31 @@
           <div hidden class="oib-label" data-oib-label="Auto" data-oib-radio-value="1"></div>
           <!-- <button class="oib-input-radio col-3" data-oib-radio-value="1" type="button" data-abc="4564">Auto</button> -->
           <a data-role="button" href="#" data-shadow="false" data-theme="none" class="oib-input-radio cab-type-button" data-oib-radio-value="1">
-            <img src="img/cab-mini.png" border="0" />
+            <img src="img/cab-mini.png"/>
             <br />Mini
           </a>
           <div hidden class="oib-label" data-oib-label="Micro"></div>
           <!-- <button class="oib-input-radio col-3" data-oib-radio-value="2" type="button">Micro</button> -->
           <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio" data-oib-radio-value="2">
-            <img src="img/cab-micro.png" border="0" />
+            <img src="img/cab-micro.png"/>
             <br />Micro
           </a>
           <div hidden class="oib-label" data-oib-label="Sedan"></div>
           <!-- <button class="oib-input-radio col-3"  data-oib-adio-value="1" type="button">Sedan</button> -->
           <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio" data-oib-radio-value="3">
-            <img src="img/cab-sedan.png" border="0" />
+            <img src="img/cab-sedan.png"/>
             <br />Sedan
           </a>
           <div hidden class="oib-label" data-oib-label="Premium"></div>
           <!-- <button class="oib-input-radio col-3" data-oib-radio-value="3" type="button">Mini</button> -->
           <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio" data-oib-radio-value="4">
-            <img src="img/cab-premium.png" border="0" />
+            <img src="img/cab-premium.png" />
             <br />Luxury
           </a>
           <div hidden class="oib-label" data-oib-label="Share"></div>
           <!-- <button class="oib-input-radio col-3" data-oib-radio-value="3" type="button">Mini</button> -->
           <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio" data-oib-radio-value="5">
-            <img src="img/cab-share.png" border="0" />
+            <img src="img/cab-share.png" />
             <br />Share
           </a>
         </div>
@@ -120,7 +120,7 @@
         </div>
       </form>
     </div>
-    <div *ngIf="isOIBMode" id="IOB-Div" [innerHTML]="OIBString"></div>
+    <div *ngIf="isOIBMode" id="IOB-Div"></div>
 
     <!-- <input type="checkbox" onchange="app.toggleOIBMode()">
     <span>OIB Mode</span> -->

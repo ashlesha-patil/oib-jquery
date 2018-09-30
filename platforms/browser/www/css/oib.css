@@ -104,7 +104,6 @@ h1 {
     padding: 10px;
     width: 100%;
     font-size: 17px;
-    font-family: Raleway;
     border: 1px solid #aaaaaa;
   }
   
@@ -118,14 +117,13 @@ h1 {
     display: none;
   }
   
-  button {
-    background-color: #4CAF50;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 17px;
-    font-family: Raleway;
-    cursor: pointer;
+  .oib-primary-button {
+    background-color: #395697 !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    font-size: 18px !important;
+    cursor: pointer !important;
   }
   
   button:hover {
@@ -133,8 +131,16 @@ h1 {
   }
   
   #prevBtn {
-    background-color: #bbbbbb;
+    margin-right:15px;
   }
+  /* .oib-secondary-button {
+    background-color: #bbbbbb !important;
+    margin-right: 15px !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    font-size: 18px !important;
+    cursor: pointer !important;
+  } */
   
   /* Make circles that indicate the steps of the form: */
   .step {
@@ -155,4 +161,52 @@ h1 {
   /* Mark the steps that are finished and valid: */
   .step.finish {
     background-color: #4CAF50;
+  }
+
+  .oib-mode-radio {
+    font-size: 20px;
+    flex: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .oib-radio-wrapper {
+    width: 24px;
+  }
+  .padding-15 {
+    padding: 15px;
+  }
+  .padding-20 {
+    padding: 20px;
+  }
+  .oib-mode-heading {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    text-align: left !important;
+    padding: 20px 0 20px 20px !important;
+  }
+  .notransition {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+  }
+  .oib-action-buttons {
+    overflow: auto;
+    position: absolute;
+    bottom: 55px;
+    width: 100%;
+  }
+  .oib-footer-steps {
+    text-align: center;
+    margin-top: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  .oib-radio-row {
+    padding: 10px 0 10px 60px;
+  }
+  .oib-mode-label {
+    text-align: left;
   }
