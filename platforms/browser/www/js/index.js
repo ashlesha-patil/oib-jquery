@@ -47,10 +47,10 @@ var app = {
         console.log('isOIBMode: ' + event.value);
         if (event.value != '1') {
             this.isOIBMode = false;
-          OIB.exitOIB('hideThis');
+          OIB.exitOIB('hideThis', 'OIB-Div');
         } else {
             this.isOIBMode = true;
-                OIB.initialize('hideThis');
+                OIB.initialize('hideThis', 'OIB-Div');
         }
       },
 

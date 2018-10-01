@@ -49,7 +49,7 @@ const OIB_DATA_ATTRS = {
 }
 const OIB = {
   // add capabilities...
-  initialize: function (elementId) {
+  initialize: function (elementToHide, elementToShow) {
     console.log('OIB INITIALIZED');
     // Get all elements with attribute data-oib-page-number
     var allElements = [].slice.call(document.querySelectorAll('[' + OIB_DATA_ATTRS.POSITION.PAGE_NUMBER+ ']'));
@@ -122,9 +122,13 @@ const OIB = {
                             <span class="step"></span>
                         </div>
                         </form>`
-    var elementToHide = document.getElementById(elementId);
-    elementToHide.innerHTML = htmlString;
-    elementToHide.className += ' notransition';
+    var elmntToHide = document.getElementById(elementToHide);
+    elmntToHide.style.display = 'none';
+    var elmntToShow = document.getElementById(elementToShow);
+    elmntToShow.innerHTML = htmlString;
+    elmntToShow.style.display = 'block';
+    elmntToShow.className += ' notransition';
+    elmntToShow.removeAttribute('hidden');
     var currentTab = 0; // Current tab is set to be the first tab (0)
     this.showTab(currentTab); // Display the crurrent tab
     return htmlString;
@@ -178,9 +182,11 @@ const OIB = {
     //... and adds the "active" class on the current step:
     x[n].className += " active";
   },
-  exitOIB: function(elementId) {
-    const element = document.getElementById(elementId);
-    element.style.display = "block";
+  exitOIB: function(oibElementId, defaultElementId) {
+    const oibElement = document.getElementById(oibElementId);
+    oibElement.style.display = "block";
+    const defaultElement = document.getElementById(defaultElementId);
+    defaultElement.style.display = "none";
   },
   getRadioGroup: function(radioElements, name) {
     // radioElements = radioElements.sort(function (a, b) {
