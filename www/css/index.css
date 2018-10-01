@@ -128,24 +128,47 @@ h1 {
     font-size: 16px !important;
     font-weight: normal !important;
 }
+.settings-menu:hover {
+    color: #eabf4e !important;
+    background-color: #333333 !important;
+    text-shadow: none !important;
+}
 .menu-icon {
     width: 50px
 }
 .settings-heading {
     font-size: 20px !important;
-    font-weight: 600 !important;
+    font-weight: 400 !important;
     padding: 12px !important;
+    background-color: #eabf4e !important;
+    color: #000000 !important;
+    border: none !important;
 }
 .profile-img {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    border-radius: 50% !important;
 }
 .profile-list-item {
     height: 100px;
     padding: 10px;
 }
 .profile-name {
-    padding-left: 20px;
-    font-size: 120%;
+    padding-left: 10px;
+    font-size: 100%;
+}
+.cabby-header {
+    background-color: #eabf4e !important;
+}
+.padding-0 {
+    padding: 0 !important;
+}
+.margin-0 {
+    margin: 0 !important;
+}
+.menu-panel .ui-panel-inner {
+    padding: 0 !important;
+}
+.profile-name-label {
+    margin: 0 !important;
 }
