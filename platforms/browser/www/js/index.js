@@ -56,6 +56,9 @@ var app = {
 
       setRideType: function() {
           alert('Hiiiii NOT Byeeee')
+      },
+      bookNow: function() {
+          document.location = 'bookingConfirmation.html';
       }
 };
 
