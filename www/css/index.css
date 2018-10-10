@@ -172,3 +172,6 @@ h1 {
 .profile-name-label {
     margin: 0 !important;
 }
+.oib-mode-selection-label {
+    display: inline-block !important;
+}

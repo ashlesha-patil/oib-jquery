@@ -1,3 +1,3 @@
-$('#confirmation').live('pageshow', function(event) {
+$('#confirmation').on('pageshow', null, function(event) {
 	alert('loaded');
 });

@@ -58,7 +58,7 @@ var app = {
           alert('Hiiiii NOT Byeeee')
       },
       bookNow: function() {
-          document.location = 'bookingConfirmation.html';
+        $.mobile.navigate( "#confirmation" );
       }
 };
 
