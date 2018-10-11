@@ -66,7 +66,6 @@ $(document).ready(() => {
     console.log('ready');
 });
 $(document).on("pagecreate", "#landing-page", function () {
-
     /* change event handler */
     function flipChanged(e) {
         var id = this.id,

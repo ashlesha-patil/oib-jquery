@@ -202,10 +202,9 @@
 
   </div>
 
-  <div id="confirmation" data-role="page" data-add-back-btn="true">
-
+  <div id="confirmation" data-role="page" data-add-back-btn="true" style="text-align:center">
     <div data-role="header" class="cabby-header">
-      <a href="#left-panel" data-theme="none">
+      <a href="#left-panel" data-theme="none" class="settings-bar">
         <i class="fa fa-bars"></i>
       </a>
       <span>
@@ -219,7 +218,62 @@
       </div>
     </div>
 
-
+    <div data-role="panel" id="left-panel" data-display="overlay" class="menu-panel">
+      <ul data-role="listview" data-inset="true" data-divider-theme="b" class="margin-0">
+        <li data-role="list-divider" class="settings-heading">Settings</li>
+        <li>
+          <a href="#profile-page" class="settings-menu">
+            <i class="fa fa-2x fa-user menu-icon"></i>Profile</a>
+        </li>
+        <li>
+          <a href="#" class="settings-menu">
+            <i class="fas fa-2x fa-car-side menu-icon"></i>Your Rides</a>
+        </li>
+        <li>
+          <a href="#" class="settings-menu">
+            <i class="fas fa-2x fa-rupee-sign menu-icon"></i>Payments</a>
+        </li>
+        <li>
+          <a href="#" class="settings-menu">
+            <i class="fas fa-2x fa-comments-dollar menu-icon"></i>Refer and Earn</a>
+        </li>
+        <li>
+          <a href="#" class="settings-menu">
+            <i class="fas fa-2x fa-ticket-alt menu-icon"></i>Cab Pass</a>
+        </li>
+        <li>
+          <a href="#" class="settings-menu">
+            <i class="fas fa-2x fa-clipboard-list menu-icon"></i>Rate Card</a>
+        </li>
+        <li>
+          <a href="#" class="settings-menu">
+            <i class="fas fa-2x fa-headset menu-icon"></i>Support</a>
+        </li>
+        <li>
+          <a href="#" class="settings-menu">
+            <i class="fas fa-2x fa-info-circle menu-icon"></i>About</a>
+        </li>
+      </ul>
+    </div>
+    <div data-role="panel" id="profile-page" data-display="overlay" class="menu-panel">
+      <ul data-role="listview" data-inset="true" data-divider-theme="b" class="margin-0">
+        <li data-role="list-divider" class="settings-heading">
+          <label class="profile-name-label">
+            <img src="img/aai.png" class="profile-img" />
+            <span class="profile-name">Ashlesha Jagtap</span>
+          </label>
+        </li>
+        <li>
+          <div data-role="ui-field-contain">
+            <label for="flip-mini" class="oib-mode-selection-label">OIB Mode:</label>
+            <select name="flip-mini" id="flip-mini" data-role="flipswitch" data-mini="true">
+              <option value="off">Off</option>
+              <option value="on">On</option>
+            </select>
+          </div>
+        </li>
+      </ul>
+    </div>  
   </div>
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="lib/oib.js"></script>
