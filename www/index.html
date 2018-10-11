@@ -213,9 +213,20 @@
     </div>
     <div data-role="main" class="ui-content container">
       <div id="hideThis">
-
-        SAMPLE
-      </div>
+        <div>Cab 1 Min away</div>
+        <div class="pickup"><span class="dot success"></span>pickup</div>
+        <div class="drop"><span class="dot failure"></span>drop</div>
+        <div class="map-div"></div>
+        <div clas="fare">100Rs</div>
+        <div class="row">
+          <div class="col-6">Personal</div>
+          <div class="col-6">Apply Coupon</div>
+        </div>
+        <div>
+          <div hidden class="oib-label" data-oib-label="Book" data-oib-sequence="3-3"></div>
+          <button class="oib-button book-button" data-oib-sequence="3-3" onclick="app.bookNow()">Book Now</button>
+        </div>
+       </div>
     </div>
 
     <div data-role="panel" id="left-panel" data-display="overlay" class="menu-panel">

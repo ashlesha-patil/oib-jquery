@@ -180,3 +180,16 @@ h1 {
     border: none !important;
     box-shadow: none !important;
  }
+ .dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+   }
+ .success {
+    background-color: #28a745;
+ }  
+ .failure {
+    background-color:#ea1e05e8;
+ }
