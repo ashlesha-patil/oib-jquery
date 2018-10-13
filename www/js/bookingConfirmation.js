@@ -1,6 +1,11 @@
 $(document).on("pagecreate", "#confirmation", function () {
     // $('#confirmationHeader').load('../header.html');
-    /* change event handler */
+	/* change event handler */
+	console.log('isOib' + $('#isOib').val());
+	console.log('pickup' + $('#pickupAddressConfirm').val());
+	console.log('drop' + $('#dropAddressConfirm').val());
+	$('#pickupAddressConfirm').html($('#pickupAddress').val());
+	$('#dropAddressConfirm').html($('#dropAddress').val());
     function flipChanged(e) {
         var id = this.id,
             value = this.value;

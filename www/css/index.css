@@ -193,3 +193,13 @@ h1 {
  .failure {
     background-color:#ea1e05e8;
  }
+ .address-panel {
+    text-align: left;
+    padding-left: 10px;
+    font-size: 15px;
+ }
+ .vertical-line {
+    border-left: 1px solid grey;
+    height: 22px;
+    margin-left: 4px;
+}

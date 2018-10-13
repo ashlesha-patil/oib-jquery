@@ -51,6 +51,9 @@
 </head>
 
 <body>
+  <input type="text" id="isOib" hidden/>
+  <input type="text" id="pickupAddress" hidden/>
+  <input type="text" id="dropAddress" hidden/>
   <div id="landing-page" style="text-align:center" data-role="page">
     <div data-role="header" class="cabby-header">
       <a href="#left-panel" data-theme="none" class="settings-bar">
@@ -75,11 +78,11 @@
           <div class="map-div">
             <div class="location-input">
               <label data-oib-page-number="2" class="oib-label" for='sourceAddress' hidden> Pick Up</label>
-              <input data-oib-page-number="2" class="oib-input" type='text' name='sourceAddress' placeholder="Enter Pickup Location">
+              <input id="pickup" data-oib-page-number="2" class="oib-input" type='text' name='sourceAddress' placeholder="Enter Pickup Location">
             </div>
             <div class="location-input">
               <label data-oib-page-number="3" data-oib-label="Drop" for='destinationAddress' hidden></label>
-              <input data-oib-page-number="3" class="oib-input" type='text' name='destinationAddress' placeholder="Enter drop Location">
+              <input id="drop" data-oib-page-number="3" class="oib-input" type='text' name='destinationAddress' placeholder="Enter drop Location">
             </div>
             <!-- <img src="img/map.png" class="map-img" /> -->
           </div>
@@ -213,9 +216,12 @@
     </div>
     <div data-role="main" class="ui-content container">
       <div id="hideThis">
-        <div>Cab 1 Min away</div>
-        <div class="pickup"><span class="dot success"></span>pickup</div>
-        <div class="drop"><span class="dot failure"></span>drop</div>
+        <div class="address-panel">
+          <div>Cab 1 Min away</div>
+          <div class="pickup"><span class="dot success"></span><span id="pickupAddressConfirm"></span></div>
+          <div class="vertical-line"></div>
+          <div class="drop"><span class="dot failure"></span><span id="dropAddressConfirm"></span></div>
+        </div>
         <div class="map-div"></div>
         <div clas="fare">100Rs</div>
         <div class="row">
@@ -277,7 +283,7 @@
         <li>
           <div data-role="ui-field-contain">
             <label for="flip-mini" class="oib-mode-selection-label">OIB Mode:</label>
-            <select name="flip-mini" id="flip-mini" data-role="flipswitch" data-mini="true">
+            <select id="isOib" name="flip-mini" id="flip-mini" data-role="flipswitch" data-mini="true">
               <option value="off">Off</option>
               <option value="on">On</option>
             </select>

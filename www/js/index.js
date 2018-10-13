@@ -59,11 +59,21 @@ var app = {
       },
       bookNow: function() {
         $.mobile.navigate( "#confirmation" );
-      }
+      },
+      
 };
 
 $(document).ready(() => {
     console.log('ready');
+    $("#pickup").change(function(){
+        $("#pickupAddress").val($(this).val());
+    });
+    $("#drop").change(function(){
+        $("#dropAddress").val($(this).val());
+    });
+    $("#isOib").change(function(){
+        $("#isOib").val($(this).val());
+    });
 });
 $(document).on("pagecreate", "#landing-page", function () {
     /* change event handler */
