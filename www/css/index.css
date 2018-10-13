@@ -203,3 +203,29 @@ h1 {
     height: 22px;
     margin-left: 4px;
 }
+.confirmation-map-div {
+    background-image: url(../img/confirmation-map2.png);
+    height: calc(100vh - 273px);
+    background-repeat: no-repeat;
+}
+.fare {
+    font-size: 15px;
+   font-weight: 600;
+}
+.grey-text {
+    color:grey
+}
+.small-text {
+    font-size: 13px;
+}
+.medium-text {
+    font-size: 15px
+}
+.bottom-box {
+    border: 1px solid #bdbaba;
+    padding: 5px;
+    border-left: 0;
+}
+.no-right-border {
+    border-right: 0px;
+}
