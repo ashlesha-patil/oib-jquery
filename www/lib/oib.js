@@ -50,9 +50,10 @@ const OIB_DATA_ATTRS = {
 const OIB = {
   // add capabilities...
   initialize: function (elementToHide, elementToShow) {
-    console.log('OIB INITIALIZED');
+    console.log('OIB INITIALIZED' + '#'+ elementToHide + ' > [' + OIB_DATA_ATTRS.POSITION.PAGE_NUMBER+ ']');
+
     // Get all elements with attribute data-oib-page-number
-    var allElements = [].slice.call(document.querySelectorAll('[' + OIB_DATA_ATTRS.POSITION.PAGE_NUMBER+ ']'));
+    var allElements = [].slice.call(document.getElementById(elementToHide).querySelectorAll('[' + OIB_DATA_ATTRS.POSITION.PAGE_NUMBER+ ']'));
     // Sort by page number
     allElements = allElements.sort(function (a, b) {
       if (!isNaN(Number(a.getAttribute(OIB_DATA_ATTRS.POSITION.PAGE_NUMBER))) && !isNaN(Number(b.getAttribute(OIB_DATA_ATTRS.POSITION.PAGE_NUMBER)))) {

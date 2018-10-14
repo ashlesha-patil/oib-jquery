@@ -72,7 +72,7 @@ $(document).ready(() => {
         $("#dropAddress").val($(this).val());
     });
     $("#isOib").change(function(){
-        $("#isOib").val($(this).val());
+        $("#isOibMode").val($(this).val());
     });
 });
 $(document).on("pagecreate", "#landing-page", function () {
@@ -83,6 +83,7 @@ $(document).on("pagecreate", "#landing-page", function () {
         console.log(id + " has been changed! " + value);
         app.isOIBMode = value;
         OIB.initialize('hideThis', 'OIB-Div');
+        $("#isOibMode").val(value);
     }
 
     /* add listener - this will be removed once other buttons are clicked */
