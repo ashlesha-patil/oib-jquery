@@ -60,6 +60,9 @@ var app = {
       bookNow: function() {
         $.mobile.navigate( "#confirmation" );
       },
+      confirmBooking: function() {
+        $.mobile.navigate( "#final" );
+      }
       
 };
 

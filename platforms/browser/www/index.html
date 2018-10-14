@@ -205,6 +205,7 @@
 
   </div>
 
+  <!-- confirmation screen -->
   <div id="confirmation" data-role="page" data-add-back-btn="true" style="text-align:center">
     <div data-role="header" class="cabby-header">
       <a href="#left-panel" data-theme="none" class="settings-bar">
@@ -231,7 +232,7 @@
         </div>
         <div>
           <div hidden class="oib-label" data-oib-label="Book" data-oib-sequence="3-3"></div>
-          <button class="oib-button book-button" data-oib-sequence="3-3" onclick="app.bookNow()">Book Now</button>
+          <button class="oib-button book-button" data-oib-sequence="3-3" onclick="app.confirmBooking()">Confirm Booking</button>
         </div>
        </div>
     </div>
@@ -294,6 +295,104 @@
       </ul>
     </div>  
   </div>
+
+  <!-- final screen-->
+  <div id="final" data-role="page" data-add-back-btn="true" style="text-align:center">
+      <div data-role="header" class="cabby-header">
+        <a href="#left-panel" data-theme="none" class="settings-bar">
+          <i class="fa fa-bars"></i>
+        </a>
+        <span>
+          <img src="img/cabbby.png" width="45px" style="padding: 5px;" />Cabby</span>
+        <i class="fa fa-bell ui-btn-right"></i>
+      </div>
+      <div data-role="main" class="ui-content container">
+        <div id="hideThis-confirm">
+          <div class="address-panel">
+            <div data-oib-page-number="1" data-oib-sequence="1">Cab 1 Min away</div>
+            <div class="pickup" data-oib-page-number="1" data-oib-sequence="2"><span class="dot success"></span><span id="pickupAddressConfirm"></span></div>
+            <div class="vertical-line"></div>
+            <div class="drop" data-oib-page-number="1" data-oib-sequence="3"><span class="dot failure"></span><span id="dropAddressConfirm"></span></div>
+          </div>
+          <div class="confirmation-map-div" data-oib-page-number="1" data-oib-sequence="4"></div>
+          <!-- <div clas="fare medium-text" data-oib-page-number="1" data-oib-sequence="5"><i class="fa fa-rupee-sign"></i> 100</div>
+          <div class="grey-text small-text">Total fare</div> -->
+          <div class="row">
+            <div class="col-6">Car Details</div>
+            <div class="col-6">Driver Details</div>
+          </div>
+          <div class="row">
+              <div class="col-3"><i class="fas fa-phone"></i></div>
+              <div class="col-3"><i class="fas fa-building"></i></div>
+              <div class="col-3"><i class="fas fa-times-circle"></i></div>
+              <div class="col-3"><i class="fas fa-ellipsis-v"></i></div>
+            </div>
+          <!-- <div>
+            <div hidden class="oib-label" data-oib-label="Book" data-oib-sequence="3-3"></div>
+            <button class="oib-button book-button" data-oib-sequence="3-3" onclick="app.bookNow()">Book Now</button>
+          </div> -->
+         </div>
+      </div>
+      <div id="OIB-Div-confirm"></div>
+  
+      <div data-role="panel" id="left-panel" data-display="overlay" class="menu-panel">
+        <ul data-role="listview" data-inset="true" data-divider-theme="b" class="margin-0">
+          <li data-role="list-divider" class="settings-heading">Settings</li>
+          <li>
+            <a href="#profile-page" class="settings-menu">
+              <i class="fa fa-2x fa-user menu-icon"></i>Profile</a>
+          </li>
+          <li>
+            <a href="#" class="settings-menu">
+              <i class="fas fa-2x fa-car-side menu-icon"></i>Your Rides</a>
+          </li>
+          <li>
+            <a href="#" class="settings-menu">
+              <i class="fas fa-2x fa-rupee-sign menu-icon"></i>Payments</a>
+          </li>
+          <li>
+            <a href="#" class="settings-menu">
+              <i class="fas fa-2x fa-comments-dollar menu-icon"></i>Refer and Earn</a>
+          </li>
+          <li>
+            <a href="#" class="settings-menu">
+              <i class="fas fa-2x fa-ticket-alt menu-icon"></i>Cab Pass</a>
+          </li>
+          <li>
+            <a href="#" class="settings-menu">
+              <i class="fas fa-2x fa-clipboard-list menu-icon"></i>Rate Card</a>
+          </li>
+          <li>
+            <a href="#" class="settings-menu">
+              <i class="fas fa-2x fa-headset menu-icon"></i>Support</a>
+          </li>
+          <li>
+            <a href="#" class="settings-menu">
+              <i class="fas fa-2x fa-info-circle menu-icon"></i>About</a>
+          </li>
+        </ul>
+      </div>
+      <div data-role="panel" id="profile-page" data-display="overlay" class="menu-panel">
+        <ul data-role="listview" data-inset="true" data-divider-theme="b" class="margin-0">
+          <li data-role="list-divider" class="settings-heading">
+            <label class="profile-name-label">
+              <img src="img/aai.png" class="profile-img" />
+              <span class="profile-name">Ashlesha Jagtap</span>
+            </label>
+          </li>
+          <li>
+            <div data-role="ui-field-contain">
+              <label for="flip-mini" class="oib-mode-selection-label">OIB Mode:</label>
+              <select id="isOib" name="flip-mini" id="flip-mini" data-role="flipswitch" data-mini="true">
+                <option value="off">Off</option>
+                <option value="on">On</option>
+              </select>
+            </div>
+          </li>
+        </ul>
+      </div>  
+    </div>
+
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="lib/oib.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
