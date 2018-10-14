@@ -48,6 +48,8 @@ const OIB_DATA_ATTRS = {
   }
 }
 const OIB = {
+  currentElementToShow: null,
+  currentElementToHide: null,
   // add capabilities...
   initialize: function (elementToHide, elementToShow) {
     console.log('OIB INITIALIZED' + '#'+ elementToHide + ' > [' + OIB_DATA_ATTRS.POSITION.PAGE_NUMBER+ ']');
@@ -124,8 +126,10 @@ const OIB = {
                         </div>
                         </form>`
     var elmntToHide = document.getElementById(elementToHide);
+    this.currentElementToHide = elmntToHide;
     elmntToHide.style.display = 'none';
     var elmntToShow = document.getElementById(elementToShow);
+    this.currentElementToShow = elmntToShow
     elmntToShow.innerHTML = htmlString;
     elmntToShow.style.display = 'block';
     elmntToShow.className += ' notransition';
@@ -155,7 +159,7 @@ const OIB = {
   showTab: function(n) {
     this.currentTab = n;
     // This function will display the specified tab of the form...
-    var x = document.getElementsByClassName("tab");
+    var x = this.currentElementToShow.getElementsByClassName("tab");
     for (var i =0; i < x.length; i++) {
       x[i].style.display = 'none';
     }
