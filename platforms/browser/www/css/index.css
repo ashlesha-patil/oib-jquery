@@ -229,3 +229,19 @@ h1 {
 .no-right-border {
     border-right: 0px;
 }
+.final-map-div {
+    background-image: url(../img/confirmation-map2.png);
+    height: calc(100vh - 190px);
+    background-repeat: no-repeat;
+    position: relative;
+}
+.action-div {
+    position: absolute;
+    bottom: 20px;
+}
+.ride-details {
+    padding: 10px;
+}
+.car-details {
+    float: left;
+}
