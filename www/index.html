@@ -47,6 +47,7 @@
   <link rel="stylesheet" type="text/css" href="css/oib.css" />
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
   <title>Hello World</title>
 </head>
 
@@ -78,11 +79,11 @@
           <div class="map-div">
             <div class="location-input">
               <label data-oib-page-number="2" class="oib-label" for='sourceAddress' hidden> Pick Up</label>
-              <input id="pickup" data-oib-page-number="2" class="oib-input" type='text' name='sourceAddress' placeholder="Enter Pickup Location">
+              <input id="pickup" data-oib-page-number="2" class="oib-input pickup" type='text' name='sourceAddress' placeholder="Enter Pickup Location">
             </div>
             <div class="location-input">
               <label data-oib-page-number="3" data-oib-label="Drop" for='destinationAddress' hidden></label>
-              <input id="drop" data-oib-page-number="3" class="oib-input" type='text' name='destinationAddress' placeholder="Enter drop Location">
+              <input id="drop" data-oib-page-number="3" class="oib-input drop" type='text' name='destinationAddress' placeholder="Enter drop Location">
             </div>
             <!-- <img src="img/map.png" class="map-img" /> -->
           </div>
@@ -121,9 +122,10 @@
           </div>
           <div>
             <!-- <div hidden class="oib-label" data-oib-label="Book" data-oib-page-number="4"  data-oib-sequence="2"></div> -->
-            <button class="oib-button book-button" data-oib-page-number="4" onclick="app.bookNow()"  data-oib-sequence="2">Book Now</button>
+            <button id="bookNowBtn" class="oib-button book-button" data-oib-page-number="4" onclick="app.bookNow()"  data-oib-sequence="2">Book Now</button>
           </div>
         </form>
+        <div id="map-canvas"></div>
       </div>
       <div id="OIB-Div"></div>
       <div data-role="panel" id="left-panel" data-display="overlay" class="menu-panel">
@@ -310,9 +312,9 @@
         <div id="hideThis-confirm">
           <div class="address-panel">
             <div data-oib-page-number="1" data-oib-sequence="1">Cab 1 Min away</div>
-            <div class="pickup" data-oib-page-number="1" data-oib-sequence="2"><span class="dot success"></span><span id="pickupAddressConfirm"></span></div>
+            <div class="pickup" data-oib-page-number="1" data-oib-sequence="2"><span class="dot success"></span><span id="pickupAddressFinal"></span></div>
             <div class="vertical-line"></div>
-            <div class="drop" data-oib-page-number="1" data-oib-sequence="3"><span class="dot failure"></span><span id="dropAddressConfirm"></span></div>
+            <div class="drop" data-oib-page-number="1" data-oib-sequence="3"><span class="dot failure"></span><span id="dropAddressFinal"></span></div>
           </div>
           <div class="final-map-div" data-oib-page-number="1" data-oib-sequence="4">
             <div class="action-div">
@@ -351,7 +353,7 @@
          </div>
       </div>
       <div>Estimated  cash to be paid: Rs. 100</div>
-      <div id="OIB-Div-confirm"></div>
+      <div id="OIB-Div-final"></div>
   
       <div data-role="panel" id="left-panel" data-display="overlay" class="menu-panel">
         <ul data-role="listview" data-inset="true" data-divider-theme="b" class="margin-0">
@@ -415,6 +417,7 @@
   <script type="text/javascript" src="lib/oib.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
   <script type="text/javascript" src="js/bookingConfirmation.js"></script>
+  <script type="text/javascript" src="js/bookingFinal.js"></script>
 
   <script type="text/javascript">
     app.initialize();
