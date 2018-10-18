@@ -47,7 +47,6 @@
   <link rel="stylesheet" type="text/css" href="css/oib.css" />
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
   <title>Hello World</title>
 </head>
 
@@ -76,7 +75,7 @@
             <div hidden class="oib-label" data-oib-label="Outstation" data-oib-sequence="3"></div>
             <button class="oib-input-radio col-4" data-oib-sequence="3" data-oib-radio-value="1" type="button">Outstation</button>
           </div>
-          <div class="map-div">
+          <div class="map-div1">
             <div class="location-input">
               <label data-oib-page-number="2" class="oib-label" for='sourceAddress' hidden> Pick Up</label>
               <input id="pickup" data-oib-page-number="2" class="oib-input pickup" type='text' name='sourceAddress' placeholder="Enter Pickup Location">
@@ -85,6 +84,8 @@
               <label data-oib-page-number="3" data-oib-label="Drop" for='destinationAddress' hidden></label>
               <input id="drop" data-oib-page-number="3" class="oib-input drop" type='text' name='destinationAddress' placeholder="Enter drop Location">
             </div>
+
+  <div id="googleMap"></div>
             <!-- <img src="img/map.png" class="map-img" /> -->
           </div>
           <div hidden data-oib-page-number="4" data-oib-label="Select Cab Option" data-oib-sequence="1"></div>
@@ -125,7 +126,6 @@
             <button id="bookNowBtn" class="oib-button book-button" data-oib-page-number="4" onclick="app.bookNow()"  data-oib-sequence="2">Book Now</button>
           </div>
         </form>
-        <div id="map-canvas"></div>
       </div>
       <div id="OIB-Div"></div>
       <div data-role="panel" id="left-panel" data-display="overlay" class="menu-panel">
@@ -206,7 +206,6 @@
     </div> -->
 
   </div>
-
   <!-- confirmation screen -->
   <div id="confirmation" data-role="page" data-add-back-btn="true" style="text-align:center">
     <div data-role="header" class="cabby-header">
@@ -234,7 +233,7 @@
         </div>
         <div>
           <div hidden class="oib-label" data-oib-label="Book" data-oib-sequence="3-3"></div>
-          <button class="oib-button book-button" data-oib-sequence="3-3" onclick="app.confirmBooking()">Confirm Booking</button>
+          <button class="oib-button book-button" data-oib-page-number="1" data-oib-sequence="6" onclick="app.confirmBooking()">Confirm Booking</button>
         </div>
        </div>
     </div>
@@ -309,7 +308,7 @@
         <i class="fa fa-bell ui-btn-right"></i>
       </div>
       <div data-role="main" class="ui-content container">
-        <div id="hideThis-confirm">
+        <div id="hideThis-final">
           <div class="address-panel">
             <div data-oib-page-number="1" data-oib-sequence="1">Cab 1 Min away</div>
             <div class="pickup" data-oib-page-number="1" data-oib-sequence="2"><span class="dot success"></span><span id="pickupAddressFinal"></span></div>
@@ -418,6 +417,7 @@
   <script type="text/javascript" src="js/index.js"></script>
   <script type="text/javascript" src="js/bookingConfirmation.js"></script>
   <script type="text/javascript" src="js/bookingFinal.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX0wL8WPZsfSoa0tsjLBNlnroj0ZJyK68&callback=myMap"></script>
 
   <script type="text/javascript">
     app.initialize();

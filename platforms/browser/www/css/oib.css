@@ -210,3 +210,6 @@ h1 {
   .oib-mode-label {
     text-align: left;
   }
+  .oib-mode {
+    font-size: 20px;
+  }

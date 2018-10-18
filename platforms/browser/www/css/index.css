@@ -261,3 +261,7 @@ h1 {
 .yellow-background {
     background-color: yellow;
 }
+#googleMap {
+    height: 100px;
+    width: 100px;
+}
