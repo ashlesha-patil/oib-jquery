@@ -68,10 +68,77 @@ var app = {
 function myMap() {
     var mapProp= {
         center:new google.maps.LatLng(51.508742,-0.120850),
-        zoom:5,
+        zoom:15,
+        mapTypeId: 'roadmap',
+        disableDefaultUI: true
     };
+    var marker;
     var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    var input = document.getElementById('pickup');
+    var input2 = document.getElementById('drop');
+    // map.controls[google.maps.ControlPosition.TOP].push(input);
+    // map.controls[google.maps.ControlPosition.TOP].push(input2);
+
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    var autocomplete2 = new google.maps.places.Autocomplete(input2);
+
+    // Bind the map's bounds (viewport) property to the autocomplete object,
+    // so that the autocomplete requests use the current map bounds for the
+    // bounds option in the request.
+    autocomplete.bindTo('bounds', map);
+    autocomplete2.bindTo('bounds', map);
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            map.setCenter(initialLocation);
+            marker = new google.maps.Marker({position: initialLocation, map: map});
+            setAutocomplete(autocomplete, marker, map, 'pickup');
+            setAutocomplete(autocomplete2, marker, map, 'drop');
+        });
     }
+}
+
+function setAutocomplete(autocomplete, marker, map, elementId) {
+// Set the data fields to return when the user selects a place.
+autocomplete.setFields(
+    ['address_components', 'geometry', 'icon', 'name']);
+    autocomplete.addListener('place_changed', function() {
+        // infowindow.close();
+        marker.setVisible(false);
+        var place = autocomplete.getPlace();
+        if (!place.geometry) {
+          // User entered the name of a Place that was not suggested and
+          // pressed the Enter key, or the Place Details request failed.
+          window.alert("No details available for input: '" + place.name + "'");
+          return;
+        }
+
+        // If the place has a geometry, then present it on a map.
+        if (place.geometry.viewport) {
+          map.fitBounds(place.geometry.viewport);
+        } else {
+          map.setCenter(place.geometry.location);
+          map.setZoom(17);  // Why 17? Because it looks good.
+        }
+        marker.setPosition(place.geometry.location);
+        marker.setVisible(true);
+
+        var address = '';
+        if (place.address_components) {
+          address = [
+            (place.address_components[0] && place.address_components[0].short_name || ''),
+            (place.address_components[1] && place.address_components[1].short_name || ''),
+            (place.address_components[2] && place.address_components[2].short_name || '')
+          ].join(' ');
+        }
+        $('#'+elementId).val(address).change();
+
+        // infowindowContent.children['place-icon'].src = place.icon;
+        // infowindowContent.children['place-name'].textContent = place.name;
+        // infowindowContent.children['place-address'].textContent = address;
+        // infowindow.open(map, marker);
+      });
+}    
 $(document).ready(() => {
     console.log('ready');
     $(document).on('change', '.pickup', function(){

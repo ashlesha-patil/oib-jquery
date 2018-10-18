@@ -262,6 +262,14 @@ h1 {
     background-color: yellow;
 }
 #googleMap {
-    height: 100px;
-    width: 100px;
+    height: 60vh;
+    width: 100vw;
+}
+#confirmationMap {
+    height: 50vh;
+    width: 100vw;
+}
+#finalMap {
+    height: 50vh;
+    width: 100vw;
 }

@@ -137,6 +137,7 @@
       var elmntToHide = document.getElementById(elementToHide);
       this.currentElementToHide = elmntToHide;
       elmntToHide.style.display = 'none';
+      elmntToHide.innerHTML = '';
       var elmntToShow = document.getElementById(elementToShow);
       this.currentElementToShow = elmntToShow
       elmntToShow.innerHTML = htmlString;
@@ -145,7 +146,46 @@
       elmntToShow.removeAttribute('hidden');
       var currentTab = 0; // Current tab is set to be the first tab (0)
       this.showTab(currentTab); // Display the crurrent tab
+      var autocomplete;
+      (function initialize() {
+        autocomplete = new google.maps.places.Autocomplete(
+          (document.getElementById('pickup')),
+          { types: ['geocode'] }
+        );
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+          var place = autocomplete.getPlace();
+          var address = '';
+          if (place.address_components) {
+            address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+          }
+          $('#pickup').val(address).change();
+        });
+      })();
+      var autocomplete1;
+      (function initialize() {
+        autocomplete1 = new google.maps.places.Autocomplete(
+          (document.getElementById('drop')),
+          { types: ['geocode'] }
+        );
+        google.maps.event.addListener(autocomplete1, 'place_changed', function() {
+          var place = autocomplete1.getPlace();
+          var address = '';
+          if (place.address_components) {
+            address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+          }
+          $('#drop').val(address).change();
 
+          // document.getElementById('drop').value = address;
+        });
+      })();
       // for (let index in this.modifiedIds) {
       //   jQuery.event.copy(document.getElementById(this.modifiedIds[index].from), this.modifiedIds[index].to);
       // }
