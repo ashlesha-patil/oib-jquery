@@ -51,9 +51,9 @@
 </head>
 
 <body>
-  <input type="text" id="isOibMode" hidden/>
-  <input type="text" id="pickupAddress" hidden/>
-  <input type="text" id="dropAddress" hidden/>
+  <input type="text" id="isOibMode" hidden />
+  <input type="text" id="pickupAddress" hidden />
+  <input type="text" id="dropAddress" hidden />
   <div id="landing-page" style="text-align:center" data-role="page">
     <div data-role="header" class="cabby-header">
       <a href="#left-panel" data-theme="none" class="settings-bar">
@@ -69,61 +69,71 @@
           <div hidden data-oib-page-number="1" data-oib-label="Select Ride Type"></div>
           <div data-oib-page-number="1" class="oib-input-radio-group row" data-oib-sequence="1" data-oib-radio-name="rideType">
             <div hidden class="oib-label" data-oib-label="Daily" data-oib-sequence="1"></div>
-            <button class="oib-input-radio col-4" data-oib-sequence="1" data-oib-radio-value="1" type="button" onclick="app.setRideType()">Daily</button>
+            <button class="oib-input-radio col-4 ride-button" data-oib-sequence="1" data-oib-radio-value="1" type="button" onclick="app.setRideType()">Daily</button>
             <div hidden class="oib-label" data-oib-label="One time" data-oib-sequence="2"></div>
-            <button class="oib-input-radio col-4" data-oib-sequence="2" data-oib-radio-value="1" type="button">One time</button>
+            <button class="oib-input-radio col-4 ride-button" data-oib-sequence="2" data-oib-radio-value="1" type="button">One time</button>
             <div hidden class="oib-label" data-oib-label="Outstation" data-oib-sequence="3"></div>
-            <button class="oib-input-radio col-4" data-oib-sequence="3" data-oib-radio-value="1" type="button">Outstation</button>
+            <button class="oib-input-radio col-4 ride-button" data-oib-sequence="3" data-oib-radio-value="1" type="button">Outstation</button>
           </div>
           <div class="map-div1">
             <div class="location-input">
-              <label data-oib-page-number="2" data-oib-sequence="1" class="oib-label" for='sourceAddress' hidden> Pick Up</label>
-              <input id="pickup" data-oib-page-number="2" data-oib-sequence="1" class="oib-input pickup" type='text' name='sourceAddress' placeholder="Enter Pickup Location">
+              <label data-oib-page-number="2" data-oib-sequence="1" class="oib-label" for='sourceAddress' hidden> Pick
+                Up</label>
+              <input id="pickup" data-oib-page-number="2" data-oib-sequence="1" class="oib-input pickup" type='text'
+                name='sourceAddress' placeholder="Enter Pickup Location">
             </div>
             <div class="location-input">
               <label data-oib-page-number="3" data-oib-label="Drop" for='destinationAddress' hidden></label>
-              <input id="drop" data-oib-page-number="3" class="oib-input drop" type='text' name='destinationAddress' placeholder="Enter drop Location">
+              <input id="drop" data-oib-page-number="3" class="oib-input drop" type='text' name='destinationAddress'
+                placeholder="Enter drop Location">
             </div>
 
             <div id="googleMap"></div>
             <!-- <img src="img/map.png" class="map-img" /> -->
           </div>
           <div hidden data-oib-page-number="4" data-oib-label="Select Cab Option" data-oib-sequence="1"></div>
-          <div data-oib-page-number="4" class="oib-input-radio-group row" data-oib-radio-name="cabType"  data-oib-sequence="1">
+          <div data-oib-page-number="4" class="oib-input-radio-group row" data-oib-radio-name="cabType"
+            data-oib-sequence="1">
             <div hidden class="oib-label" data-oib-label="Auto" data-oib-radio-value="1"></div>
             <!-- <button class="oib-input-radio col-3" data-oib-radio-value="1" type="button" data-abc="4564">Auto</button> -->
-            <a data-role="button" href="#" data-shadow="false" data-theme="none" class="oib-input-radio cab-type-button" data-oib-radio-value="1">
+            <a data-role="button" href="#" data-shadow="false" data-theme="none" class="oib-input-radio cab-type-button"
+              data-oib-radio-value="1">
               <img src="img/cab-mini.png" />
               <br />Mini
             </a>
             <div hidden class="oib-label" data-oib-label="Micro"></div>
             <!-- <button class="oib-input-radio col-3" data-oib-radio-value="2" type="button">Micro</button> -->
-            <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio" data-oib-radio-value="2">
+            <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio"
+              data-oib-radio-value="2">
               <img src="img/cab-micro.png" />
               <br />Micro
             </a>
             <div hidden class="oib-label" data-oib-label="Sedan"></div>
             <!-- <button class="oib-input-radio col-3"  data-oib-adio-value="1" type="button">Sedan</button> -->
-            <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio" data-oib-radio-value="3">
+            <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio"
+              data-oib-radio-value="3">
               <img src="img/cab-sedan.png" />
               <br />Sedan
             </a>
             <div hidden class="oib-label" data-oib-label="Premium"></div>
             <!-- <button class="oib-input-radio col-3" data-oib-radio-value="3" type="button">Mini</button> -->
-            <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio" data-oib-radio-value="4">
+            <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio"
+              data-oib-radio-value="4">
               <img src="img/cab-premium.png" />
               <br />Luxury
             </a>
             <div hidden class="oib-label" data-oib-label="Share"></div>
             <!-- <button class="oib-input-radio col-3" data-oib-radio-value="3" type="button">Mini</button> -->
-            <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio" data-oib-radio-value="5">
+            <a data-role="button" href="#" data-shadow="false" data-theme="none" class="cab-type-button oib-input-radio"
+              data-oib-radio-value="5">
               <img src="img/cab-share.png" />
               <br />Share
             </a>
           </div>
           <div>
             <!-- <div hidden class="oib-label" data-oib-label="Book" data-oib-page-number="4"  data-oib-sequence="2"></div> -->
-            <button id="bookNowBtn" class="oib-button book-button" data-oib-page-number="4" onclick="app.bookNow()"  data-oib-sequence="2">Book Now</button>
+            <button id="bookNowBtn" class="oib-button book-button" data-oib-page-number="4" onclick="app.bookNow()"
+              data-oib-sequence="2">Book Now</button>
           </div>
         </form>
       </div>
@@ -226,7 +236,8 @@
         </div>
         <!-- <div class="confirmation-map-div" data-oib-page-number="1" data-oib-sequence="4"></div> -->
         <div data-oib-page-number="1" data-oib-sequence="4" id="confirmationMap"></div>
-        <div clas="fare medium-text" data-oib-page-number="1" data-oib-sequence="5"><i class="fa fa-rupee-sign"></i> 100</div>
+        <div clas="fare medium-text" data-oib-page-number="1" data-oib-sequence="5"><i class="fa fa-rupee-sign"></i>
+          100</div>
         <div class="grey-text small-text">Total fare</div>
         <div class="row">
           <div class="col-6 bottom-box">Personal</div>
@@ -234,9 +245,10 @@
         </div>
         <div>
           <div hidden class="oib-label" data-oib-label="Book" data-oib-sequence="3-3"></div>
-          <button class="oib-button book-button" data-oib-page-number="1" data-oib-sequence="6" onclick="app.confirmBooking()">Confirm Booking</button>
+          <button class="oib-button book-button" data-oib-page-number="1" data-oib-sequence="6" onclick="app.confirmBooking()">Confirm
+            Booking</button>
         </div>
-       </div>
+      </div>
     </div>
     <div id="OIB-Div-confirm"></div>
 
@@ -295,124 +307,129 @@
           </div>
         </li>
       </ul>
-    </div>  
+    </div>
   </div>
 
   <!-- final screen-->
   <div id="final" data-role="page" data-add-back-btn="true" style="text-align:center">
-      <div data-role="header" class="cabby-header">
-        <a href="#left-panel" data-theme="none" class="settings-bar">
-          <i class="fa fa-bars"></i>
-        </a>
-        <span>
-          <img src="img/cabbby.png" width="45px" style="padding: 5px;" />Cabby</span>
-        <i class="fa fa-bell ui-btn-right"></i>
-      </div>
-      <div data-role="main" class="ui-content container">
-        <div id="hideThis-final">
-          <div class="address-panel">
-            <div data-oib-page-number="1" data-oib-sequence="1">Cab 1 Min away</div>
-            <div class="pickup" data-oib-page-number="1" data-oib-sequence="2"><span class="dot success"></span><span id="pickupAddressFinal"></span></div>
-            <div class="vertical-line"></div>
-            <div class="drop" data-oib-page-number="1" data-oib-sequence="3"><span class="dot failure"></span><span id="dropAddressFinal"></span></div>
-          </div>
-          <!-- <div class="final-map-div" data-oib-page-number="1" data-oib-sequence="4"> -->
-              <div id="finalMap" data-oib-page-number="1" data-oib-sequence="4"></div>
-            <div class="action-div">
-              <div class="row ride-details">
+    <div data-role="header" class="cabby-header">
+      <a href="#left-panel" data-theme="none" class="settings-bar">
+        <i class="fa fa-bars"></i>
+      </a>
+      <span>
+        <img src="img/cabbby.png" width="45px" style="padding: 5px;" />Cabby</span>
+      <i class="fa fa-bell ui-btn-right"></i>
+    </div>
+    <div data-role="main" class="ui-content container">
+      <div id="hideThis-final">
+        <div class="address-panel">
+          <div data-oib-page-number="1" data-oib-sequence="1">Cab 1 Min away</div>
+          <div class="pickup" data-oib-page-number="1" data-oib-sequence="2"><span class="dot success"></span><span id="pickupAddressFinal"></span></div>
+          <div class="vertical-line"></div>
+          <div class="drop" data-oib-page-number="1" data-oib-sequence="3"><span class="dot failure"></span><span id="dropAddressFinal"></span></div>
+        </div>
+        <!-- <div class="final-map-div" data-oib-page-number="1" data-oib-sequence="4"> -->
+        <div id="finalMap" data-oib-page-number="1" data-oib-sequence="4"></div>
+        <div class="add-div">
+          <img src="./img/kfc-add.jpg" >
+        </div>
+        <div class="action-div">
+          <div class="row ride-details">
+            <div class="col-6">
+              <div class="row">
+                <!-- <i class="col-6 fas fa-3x fa-car-side"></i> -->
+                <img src="./img/car-icon-image.jpeg">
                 <div class="col-6">
-                  <div class="row">
-                      <!-- <i class="col-6 fas fa-3x fa-car-side"></i> -->
-                      <img src="./img/car-icon-image.jpeg">
-                      <div class="col-6">
-                        <span class="small-text grey-text">MH11FC</span>
-                        <span class="medium-text font-weight-600">1111</span>
-                    </div>
-                  </div>
-                  
-                </div>
-                <div class="col-6">
-                  <div class="small-text yellow-background">OTP: 3333</div>
-                  <div class="small-text">Kulbhushan Gaikwad   <i class="fas fa-2x fa-user-circle"></i></div>
-                  <div><i class="far fa-star font-weight-600"></i> 4.8</div>
+                  <span class="small-text grey-text">MH11FC</span>
+                  <span class="medium-text font-weight-600">1111</span>
                 </div>
               </div>
-              <div class="row action-icons-row">
-                <div class="col-3 border-right"><i class="fas fa-phone"></i></div>
-                <div class="col-3 border-right"><i class="fas fa-building"></i></div>
-                <div class="col-3 border-right"><i class="fas fa-times-circle"></i></div>
-                <div class="col-3"><i class="fas fa-ellipsis-v"></i></div>
-              </div>
+
+            </div>
+            <div class="col-6">
+              <div class="small-text yellow-background">OTP: 3333</div>
+              <div class="small-text">Kulbhushan Gaikwad <i class="fas fa-2x fa-user-circle"></i></div>
+              <div><i class="far fa-star font-weight-600"></i> 4.8</div>
             </div>
           </div>
-          <!-- <div clas="fare medium-text" data-oib-page-number="1" data-oib-sequence="5"><i class="fa fa-rupee-sign"></i> 100</div>
+          <div class="row action-icons-row">
+            <div class="col-3 border-right"><i class="fas fa-phone"></i></div>
+            <div class="col-3 border-right"><i class="fas fa-building"></i></div>
+            <div class="col-3 border-right"><i class="fas fa-times-circle"></i></div>
+            <div class="col-3"><i class="fas fa-ellipsis-v"></i></div>
+          </div>
+        </div>
+        <div class="estimation-div small-text">Estimated cash to be paid: Rs. 100</div>
+  
+      </div>
+      <!-- <div clas="fare medium-text" data-oib-page-number="1" data-oib-sequence="5"><i class="fa fa-rupee-sign"></i> 100</div>
           <div class="grey-text small-text">Total fare</div> -->
-          <!-- <div>
+      <!-- <div>
             <div hidden class="oib-label" data-oib-label="Book" data-oib-sequence="3-3"></div>
             <button class="oib-button book-button" data-oib-sequence="3-3" onclick="app.bookNow()">Book Now</button>
           </div> -->
-         </div>
-      </div>
-      <div>Estimated  cash to be paid: Rs. 100</div>
-      <div id="OIB-Div-final"></div>
-  
-      <div data-role="panel" id="left-panel" data-display="overlay" class="menu-panel">
-        <ul data-role="listview" data-inset="true" data-divider-theme="b" class="margin-0">
-          <li data-role="list-divider" class="settings-heading">Settings</li>
-          <li>
-            <a href="#profile-page" class="settings-menu">
-              <i class="fa fa-2x fa-user menu-icon"></i>Profile</a>
-          </li>
-          <li>
-            <a href="#" class="settings-menu">
-              <i class="fas fa-2x fa-car-side menu-icon"></i>Your Rides</a>
-          </li>
-          <li>
-            <a href="#" class="settings-menu">
-              <i class="fas fa-2x fa-rupee-sign menu-icon"></i>Payments</a>
-          </li>
-          <li>
-            <a href="#" class="settings-menu">
-              <i class="fas fa-2x fa-comments-dollar menu-icon"></i>Refer and Earn</a>
-          </li>
-          <li>
-            <a href="#" class="settings-menu">
-              <i class="fas fa-2x fa-ticket-alt menu-icon"></i>Cab Pass</a>
-          </li>
-          <li>
-            <a href="#" class="settings-menu">
-              <i class="fas fa-2x fa-clipboard-list menu-icon"></i>Rate Card</a>
-          </li>
-          <li>
-            <a href="#" class="settings-menu">
-              <i class="fas fa-2x fa-headset menu-icon"></i>Support</a>
-          </li>
-          <li>
-            <a href="#" class="settings-menu">
-              <i class="fas fa-2x fa-info-circle menu-icon"></i>About</a>
-          </li>
-        </ul>
-      </div>
-      <div data-role="panel" id="profile-page" data-display="overlay" class="menu-panel">
-        <ul data-role="listview" data-inset="true" data-divider-theme="b" class="margin-0">
-          <li data-role="list-divider" class="settings-heading">
-            <label class="profile-name-label">
-              <img src="img/aai.png" class="profile-img" />
-              <span class="profile-name">Ashlesha Jagtap</span>
-            </label>
-          </li>
-          <li>
-            <div data-role="ui-field-contain">
-              <label for="flip-mini" class="oib-mode-selection-label">OIB Mode:</label>
-              <select id="isOib" name="flip-mini" id="flip-mini" data-role="flipswitch" data-mini="true">
-                <option value="off">Off</option>
-                <option value="on">On</option>
-              </select>
-            </div>
-          </li>
-        </ul>
-      </div>  
+          
     </div>
+  </div>
+  <div id="OIB-Div-final"></div>
+
+  <div data-role="panel" id="left-panel" data-display="overlay" class="menu-panel">
+    <ul data-role="listview" data-inset="true" data-divider-theme="b" class="margin-0">
+      <li data-role="list-divider" class="settings-heading">Settings</li>
+      <li>
+        <a href="#profile-page" class="settings-menu">
+          <i class="fa fa-2x fa-user menu-icon"></i>Profile</a>
+      </li>
+      <li>
+        <a href="#" class="settings-menu">
+          <i class="fas fa-2x fa-car-side menu-icon"></i>Your Rides</a>
+      </li>
+      <li>
+        <a href="#" class="settings-menu">
+          <i class="fas fa-2x fa-rupee-sign menu-icon"></i>Payments</a>
+      </li>
+      <li>
+        <a href="#" class="settings-menu">
+          <i class="fas fa-2x fa-comments-dollar menu-icon"></i>Refer and Earn</a>
+      </li>
+      <li>
+        <a href="#" class="settings-menu">
+          <i class="fas fa-2x fa-ticket-alt menu-icon"></i>Cab Pass</a>
+      </li>
+      <li>
+        <a href="#" class="settings-menu">
+          <i class="fas fa-2x fa-clipboard-list menu-icon"></i>Rate Card</a>
+      </li>
+      <li>
+        <a href="#" class="settings-menu">
+          <i class="fas fa-2x fa-headset menu-icon"></i>Support</a>
+      </li>
+      <li>
+        <a href="#" class="settings-menu">
+          <i class="fas fa-2x fa-info-circle menu-icon"></i>About</a>
+      </li>
+    </ul>
+  </div>
+  <div data-role="panel" id="profile-page" data-display="overlay" class="menu-panel">
+    <ul data-role="listview" data-inset="true" data-divider-theme="b" class="margin-0">
+      <li data-role="list-divider" class="settings-heading">
+        <label class="profile-name-label">
+          <img src="img/aai.png" class="profile-img" />
+          <span class="profile-name">Ashlesha Jagtap</span>
+        </label>
+      </li>
+      <li>
+        <div data-role="ui-field-contain">
+          <label for="flip-mini" class="oib-mode-selection-label">OIB Mode:</label>
+          <select id="isOib" name="flip-mini" id="flip-mini" data-role="flipswitch" data-mini="true">
+            <option value="off">Off</option>
+            <option value="on">On</option>
+          </select>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </div>
 
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="lib/oib.js"></script>

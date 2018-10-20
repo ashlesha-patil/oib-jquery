@@ -95,7 +95,11 @@ h1 {
 }
 .cab-type-button:hover {
     border-radius: 50% !important;
-    /* color: green; */
+    background-color: #eabf4e !important;
+}
+.ride-button:hover {
+    border-radius: 10% !important;
+    background-color: #eabf4e !important;
 }
 .container {
     padding: 0 !important;
@@ -237,7 +241,7 @@ h1 {
 }
 .action-div {
     position: absolute;
-    bottom: 20px;
+    bottom: 66px;
     width: 95%;
     background-color: white;
     margin: 0 10px;
@@ -266,10 +270,29 @@ h1 {
     width: 100vw;
 }
 #confirmationMap {
-    height: 50vh;
+    height: 62vh;
     width: 100vw;
 }
 #finalMap {
-    height: 50vh;
+    height: 80vh;
     width: 100vw;
+}
+.estimation-div {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: white;
+    margin: 0 10px;
+    padding: 5px 10px;
+    left: -10px;
+    color: grey;
+    font-weight: 600;
+}
+
+.add-div {
+    position: absolute;
+    bottom: 211px;
+    padding: 5px 10px;
+    left: 1px;
+
 }
