@@ -76,13 +76,6 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
-.oib-input-radio {
-    margin: 0px !important;
-    height: 43px;
-    border: 0 !important;
-    background-color: #fff;
-    font-weight: normal !important;
-}
 
 .cab-type-button {
     width: 19%;
@@ -295,4 +288,10 @@ h1 {
     padding: 5px 10px;
     left: 1px;
 
+}
+.action-btn-div {
+    position: absolute;
+    bottom: 10px;
+    width: 95%;
+    margin: 0 10px;
 }

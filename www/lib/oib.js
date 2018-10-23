@@ -105,6 +105,7 @@
         htmlString += '<div class="tab">';
         for (var j = 0; j < pageMap[i].length; j++) {
           const element = jQuery(pageMap[i][j]).clone(true)[0];
+          element.style.display = 'block';
           if (element.className.indexOf(OIB_ELEMENTS.CUSTOM_HTML.RADIO) !== -1) {
             htmlString += this.getRadioGroup([].slice.call(element.children), element.dataset.oibRadioName);
           } else if (element.className.indexOf(OIB_ELEMENTS.DISPLAY.LABEL) !== -1 || element.dataset.oibLabel) {
