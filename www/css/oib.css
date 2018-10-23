@@ -102,7 +102,7 @@ h1 {
   
   input {
     padding: 10px;
-    width: 100%;
+    width: 95%;
     font-size: 17px;
     border: 1px solid #aaaaaa;
   }
@@ -212,4 +212,8 @@ h1 {
   }
   .oib-mode {
     font-size: 20px;
+  }
+  .oib-submit {
+    position: absolute;
+    bottom:10px;
   }

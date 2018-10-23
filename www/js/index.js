@@ -17,6 +17,7 @@
  * under the License.
  */
 var app = {
+    currentFormattedAddress: '',
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -54,15 +55,27 @@ var app = {
         }
       },
 
-      setRideType: function() {
-          alert('Hiiiii NOT Byeeee')
-      },
-      bookNow: function() {
+    bookNow: function() {
         $.mobile.navigate( "#confirmation" );
       },
       confirmBooking: function() {
         $.mobile.navigate( "#final" );
+      },
+      changeAddressInput: function(mode) {
+          if(mode == 'manual'){
+              $('#pickup').show();
+              $('#pickup').removeAttr('hidden');
+              $('#oib-current-address').hide();
+          } else if(mode == 'current'){
+            $('#oib-current-address').html(currentFormattedAddress);
+            $('#oib-current-address').show();
+            $('#oib-current-address').removeAttr('hidden');
+            $('#pickup').hide();
+            $("#pickupAddress").val(currentFormattedAddress);
+        } 
+          
       }
+
       
 };
 function myMap() {
@@ -91,6 +104,19 @@ function myMap() {
         navigator.geolocation.getCurrentPosition(function (position) {
             initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             map.setCenter(initialLocation);
+            var geocoder = new google.maps.Geocoder;
+            geocoder.geocode({'location': initialLocation}, function(results, status) {
+                if (status === 'OK') {
+                  if (results[0]) {
+                    // infowindow.setContent(results[0].formatted_address);
+                    currentFormattedAddress = results[0].formatted_address
+                  } else {
+                    window.alert('No results found');
+                  }
+                } else {
+                  window.alert('Geocoder failed due to: ' + status);
+                }
+              });
             marker = new google.maps.Marker({position: initialLocation, map: map});
             setAutocomplete(autocomplete, marker, map, 'pickup');
             setAutocomplete(autocomplete2, marker, map, 'drop');

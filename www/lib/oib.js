@@ -302,6 +302,7 @@
         replacement.name = name;
         replacement.value = radios[i].dataset.oibRadioValue;
         replacement.type = "radio";
+        replacement.removeAttribute('hidden');
         // Persist contents
         replacement.innerHTML = original.innerHTML;
 
@@ -327,6 +328,7 @@
     },
     appendOIBClasses: function (element) {
       element.className += " oib-mode";
+      // element.removeAttribute('hidden');
       return element;
     },
     currentTab: 0

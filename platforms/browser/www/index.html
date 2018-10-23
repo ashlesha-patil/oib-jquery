@@ -79,9 +79,21 @@
             <div class="location-input">
               <label data-oib-page-number="2" data-oib-sequence="1" class="oib-label" for='sourceAddress' hidden> Pick
                 Up</label>
-              <input id="pickup" data-oib-page-number="2" data-oib-sequence="1" class="oib-input pickup" type='text'
+              <!-- <input id="pickup" class="pickup" type='text'
+                name='sourceAddress' placeholder="Enter Pickup Location"> -->
+                <input id="pickup" data-oib-page-number="2" data-oib-sequence="4" class="oib-input pickup" type='text'
                 name='sourceAddress' placeholder="Enter Pickup Location">
-            </div>
+              <!-- <div data-oib-page-number="2" class="oib-input-radio-group row" data-oib-sequence="2" data-oib-radio-name="address">
+                <div hidden class="oib-label" data-oib-label="Use current address" data-oib-sequence="1"></div>
+                <button hidden type="button" class="oib-input-radio col-4" data-oib-sequence="1" data-oib-radio-value="1" onclick="app.changeAddressInput('current')"></button>
+                <div hidden id="oib-current-address" data-oib-page-number="2" data-oib-sequence="2" class="OIB-Div"> </div>
+                <div hidden class="oib-label" data-oib-label="Enter location" data-oib-sequence="3"></div>
+                <button hidden type="button" class="oib-input-radio" data-oib-sequence="3" data-oib-radio-value="1" onclick="app.changeAddressInput('manual')"></button>
+                 
+              </div> -->
+              
+              
+             </div>
             <div class="location-input">
               <label data-oib-page-number="3" data-oib-label="Drop" for='destinationAddress' hidden></label>
               <input id="drop" data-oib-page-number="3" class="oib-input drop" type='text' name='destinationAddress'
@@ -132,7 +144,7 @@
           </div>
           <div>
             <!-- <div hidden class="oib-label" data-oib-label="Book" data-oib-page-number="4"  data-oib-sequence="2"></div> -->
-            <button id="bookNowBtn" class="oib-button book-button" data-oib-page-number="4" onclick="app.bookNow()"
+            <button id="bookNowBtn" class="oib-button book-button oib-submit" data-oib-page-number="4" onclick="app.bookNow()"
               data-oib-sequence="2">Book Now</button>
           </div>
         </form>
@@ -176,21 +188,6 @@
         </ul>
       </div>
       <div data-role="panel" id="profile-page" data-display="overlay" class="menu-panel">
-        <!-- <div class="profile-list-item">
-          <img src="img/aai.png" class="profile-img" />
-          <span class="profile-name">Ashlesha Jagtap</span>
-        </div>
-        <div class="profile-list-item">
-          <div>Contact Number</div>
-          <div>1234567890</div>
-        </div>
-        <div class="profile-list-item">
-          <div>OIB Mode</div>
-          <select name="oibMode" id="iobMode" data-role="slider" onchange="app.toggleOIBMode(this)">
-            <option value="0">Off</option>
-            <option value="1">On</option>
-          </select>
-        </div> -->
         <ul data-role="listview" data-inset="true" data-divider-theme="b" class="margin-0">
           <li data-role="list-divider" class="settings-heading">
             <label class="profile-name-label">
@@ -222,18 +219,23 @@
       <a href="#left-panel" data-theme="none" class="settings-bar">
         <i class="fa fa-bars"></i>
       </a>
-      <span>
-        <img src="img/cabbby.png" width="45px" style="padding: 5px;" />Cabby</span>
+      <span><img src="img/cabbby.png" width="45px" style="padding: 5px;" />Cabby</span>
       <i class="fa fa-bell ui-btn-right"></i>
     </div>
     <div data-role="main" class="ui-content container">
       <div id="hideThis-confirm">
-        <div class="address-panel">
-          <div data-oib-page-number="1" data-oib-sequence="1">Cab 1 Min away</div>
-          <div class="pickup" data-oib-page-number="1" data-oib-sequence="2"><span class="dot success"></span><span id="pickupAddressConfirm"></span></div>
+        <div data-oib-page-number="1" data-oib-sequence="1" class="address-panel">
+          <div>Cab 1 Min away</div>
+          <div class="pickup" ><span class="dot success"></span><span id="pickupAddressConfirm"></span></div>
           <div class="vertical-line"></div>
-          <div class="drop" data-oib-page-number="1" data-oib-sequence="3"><span class="dot failure"></span><span id="dropAddressConfirm"></span></div>
+          <div class="drop" ><span class="dot failure"></span><span id="dropAddressConfirm"></span></div>
         </div>
+        <!-- <div class="address-panel">
+            <div data-oib-page-number="1" data-oib-sequence="1">Cab 1 Min away</div>
+            <div class="pickup" data-oib-page-number="1" data-oib-sequence="2"><span class="dot success"></span><span id="pickupAddressConfirm"></span></div>
+            <div class="vertical-line"></div>
+            <div class="drop" data-oib-page-number="1" data-oib-sequence="3"><span class="dot failure"></span><span id="dropAddressConfirm"></span></div>
+          </div> -->
         <!-- <div class="confirmation-map-div" data-oib-page-number="1" data-oib-sequence="4"></div> -->
         <div data-oib-page-number="1" data-oib-sequence="4" id="confirmationMap"></div>
         <div clas="fare medium-text" data-oib-page-number="1" data-oib-sequence="5"><i class="fa fa-rupee-sign"></i>
@@ -249,7 +251,6 @@
             Booking</button>
         </div>
       </div>
-    </div>
     <div id="OIB-Div-confirm"></div>
 
     <div data-role="panel" id="left-panel" data-display="overlay" class="menu-panel">
@@ -309,6 +310,8 @@
       </ul>
     </div>
   </div>
+</div>
+    
 
   <!-- final screen-->
   <div id="final" data-role="page" data-add-back-btn="true" style="text-align:center">
@@ -322,12 +325,18 @@
     </div>
     <div data-role="main" class="ui-content container">
       <div id="hideThis-final">
-        <div class="address-panel">
-          <div data-oib-page-number="1" data-oib-sequence="1">Cab 1 Min away</div>
-          <div class="pickup" data-oib-page-number="1" data-oib-sequence="2"><span class="dot success"></span><span id="pickupAddressFinal"></span></div>
+        <div data-oib-page-number="1" data-oib-sequence="1" class="address-panel" >
+          <div >Cab 1 Min away</div>
+          <div class="pickup"><span class="dot success"></span><span id="pickupAddressFinal"></span></div>
           <div class="vertical-line"></div>
-          <div class="drop" data-oib-page-number="1" data-oib-sequence="3"><span class="dot failure"></span><span id="dropAddressFinal"></span></div>
+          <div class="drop"><span class="dot failure"></span><span id="dropAddressFinal"></span></div>
         </div>
+        <!-- <div class="address-panel" >
+            <div data-oib-page-number="1" data-oib-sequence="1">Cab 1 Min away</div>
+            <div class="pickup" data-oib-page-number="1" data-oib-sequence="2"><span class="dot success"></span><span id="pickupAddressFinal"></span></div>
+            <div class="vertical-line"></div>
+            <div class="drop" data-oib-page-number="1" data-oib-sequence="3"><span class="dot failure"></span><span id="dropAddressFinal"></span></div>
+          </div> -->
         <!-- <div class="final-map-div" data-oib-page-number="1" data-oib-sequence="4"> -->
         <div id="finalMap" data-oib-page-number="1" data-oib-sequence="4"></div>
         <div class="add-div">
@@ -370,7 +379,7 @@
           </div> -->
           
     </div>
-  </div>
+  <!-- </div> -->
   <div id="OIB-Div-final"></div>
 
   <div data-role="panel" id="left-panel" data-display="overlay" class="menu-panel">

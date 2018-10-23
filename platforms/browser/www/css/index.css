@@ -92,9 +92,9 @@ h1 {
     background-color: #ffffff !important;
     font-weight: normal !important;
     padding: 3px 2.1px !important;
+    height: 50px 
 }
 .cab-type-button:hover {
-    border-radius: 50% !important;
     background-color: #eabf4e !important;
 }
 .ride-button:hover {
