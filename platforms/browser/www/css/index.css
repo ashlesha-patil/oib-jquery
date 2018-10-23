@@ -97,7 +97,7 @@ h1 {
 .cab-type-button:hover {
     background-color: #eabf4e !important;
 }
-.ride-button:hover {
+.active {
     border-radius: 10% !important;
     background-color: #eabf4e !important;
 }

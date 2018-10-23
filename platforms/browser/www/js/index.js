@@ -74,8 +74,13 @@ var app = {
             $("#pickupAddress").val(currentFormattedAddress);
         } 
           
-      }
+      },
 
+      selectElement: function(element) {3
+        console.log(element);
+        element.className += " active";
+        // element.siblings().removeClass('active');
+      }
       
 };
 function myMap() {

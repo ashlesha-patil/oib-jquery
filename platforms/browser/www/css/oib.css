@@ -209,6 +209,7 @@ h1 {
   }
   .oib-mode-label {
     text-align: left;
+    line-height: 43px;
   }
   .oib-mode {
     font-size: 20px;
@@ -217,3 +218,10 @@ h1 {
     position: absolute;
     bottom:10px;
   }
+  .oib-input-radio {
+    margin: 0px !important;
+    height: 43px !important;;
+    border: 0 !important;
+    background-color: #fff;
+    font-weight: normal !important;
+}
