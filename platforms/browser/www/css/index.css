@@ -85,7 +85,7 @@ h1 {
     background-color: #ffffff !important;
     font-weight: normal !important;
     padding: 3px 2.1px !important;
-    height: 50px 
+    height: 50px !important;
 }
 .cab-type-button:hover {
     background-color: #eabf4e !important;

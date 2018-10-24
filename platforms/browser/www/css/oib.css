@@ -165,7 +165,7 @@ h1 {
     background-color: #4CAF50;
   }
 
-  .oib-mode-radio {
+  .oib-mode.oib-mode-radio {
     font-size: 20px;
     flex: 0 !important;
     width: 100% !important;
@@ -218,9 +218,9 @@ h1 {
   }
   .oib-submit {
     position: absolute;
-    bottom:10px;
+    /* bottom:10px; */
   }
-  .oib-input-radio {
+  .oib-mode.oib-input-radio {
     margin: 0px !important;
     height: 43px !important;;
     border: 0 !important;

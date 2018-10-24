@@ -299,7 +299,7 @@
         replacement.className = replacement.className.replace('ui-btn', '');
         replacement.className = replacement.className.replace('ui-shadow', '');
         replacement.className = replacement.className.replace('ui-corner-all', '');
-        replacement.className += ' oib-mode-radio';
+        replacement.className += ' oib-mode oib-mode-radio';
         replacement.name = name;
         replacement.value = radios[i].dataset.oibRadioValue;
         replacement.type = "radio";
