@@ -212,13 +212,15 @@ h1 {
   .oib-mode-label {
     text-align: left;
     line-height: 43px;
+    font-size: 20px !important;
   }
   .oib-mode {
-    font-size: 20px;
+    font-size: 20px !important;
   }
-  .oib-submit {
+  .oib-mode.oib-submit {
     position: absolute;
-    /* bottom:10px; */
+    bottom:0px;
+    z-index: 10;
   }
   .oib-mode.oib-input-radio {
     margin: 0px !important;
@@ -226,4 +228,18 @@ h1 {
     border: 0 !important;
     background-color: #fff;
     font-weight: normal !important;
+}
+.oib-mode .pac-item {
+  font-size: 20px;
+}
+.oib-mode .pac-container {
+  font-size: 20px;
+}
+.oib-mode .pac-item span {
+  font-size: 20px;
+}
+.ellipsis {
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

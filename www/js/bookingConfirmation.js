@@ -37,7 +37,8 @@ function displayRouteConfirm() {
 	var map = new google.maps.Map(document.getElementById('confirmationMap'), {
 		zoom: 17,
 		center: { lat: 40.771, lng: -73.974 },
-		disableDefaultUI: true
+		disableDefaultUI: true,
+		mapTypeId: 'roadmap',
 	});
 	var directionsDisplay = new google.maps.DirectionsRenderer({ map: map });
 	directionsService.route({
@@ -47,6 +48,26 @@ function displayRouteConfirm() {
 	}, function (response, status) {
 		console.log("got directions");
 		directionsDisplay.setDirections(response);
+        map.setZoom(17);
+        idleListener = google.maps.event.addListenerOnce(map, 'idle', function() {
+            var bounds =  map.getBounds();
+            map.fitBounds(map.getBounds());
+            //do whatever you want with those bounds
+          });
+        zoomChangeBoundsListener =
+            google.maps.event.addListenerOnce(map, 'bounds_changed', function (event) {
+                if (this.getZoom()) {   // or set a minimum
+                    this.setZoom(14);  // set zoom here
+                }
+                google.maps.event.removeListener(idleListener);
+                google.maps.event.removeListener(zoomChangeBoundsListener);
+            });
+
+		// var bounds = new google.maps.LatLngBounds();
+		// map.fitBounds(bounds);
+		// map.setZoom(22);
+		// directionsDisplay.setDirections(response);
+		
 	});
 }
 

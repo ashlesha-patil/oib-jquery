@@ -144,6 +144,7 @@
       elmntToShow.innerHTML = htmlString;
       elmntToShow.style.display = 'block';
       elmntToShow.className += ' notransition';
+      document.body.className += ' oib-mode';
       elmntToShow.removeAttribute('hidden');
       var currentTab = 0; // Current tab is set to be the first tab (0)
       this.showTab(currentTab); // Display the crurrent tab
@@ -221,6 +222,9 @@
 
       if (x.length < 2 || n === x.length - 1) {
         document.getElementById('oib-action-buttons').style.display = 'none';
+      }
+      if (x.length < 2) {
+        document.querySelector('.oib-footer-steps').style.display = 'none';
       }
       //... and fix the Previous/Next buttons:
       if (n == 0) {

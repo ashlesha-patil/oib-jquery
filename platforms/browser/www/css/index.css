@@ -171,6 +171,7 @@ h1 {
 }
 .oib-mode-selection-label {
     display: inline-block !important;
+    padding-right: 70px;
 }
 .settings-bar {
     background-color: #eabf4e !important;
@@ -267,7 +268,7 @@ h1 {
     width: 100vw;
 }
 #finalMap {
-    height: 80vh;
+    height: 75vh;
     width: 100vw;
 }
 .estimation-div {
